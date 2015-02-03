@@ -20,8 +20,10 @@
   "license": "MIT",
   "devDependencies": {
     "del": "^1.1.1",
-    "flow-bin": "^0.1.2",
     "gulp": "git://github.com/gulpjs/gulp#4.0",
     "gulp-cli": "git://github.com/gulpjs/gulp-cli#4.0"
+  },
+  "optionalDependencies": {
+    "flow-bin": "^0.1.2"
   }
 }
