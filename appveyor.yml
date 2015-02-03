@@ -1,7 +1,7 @@
 #http://www.appveyor.com/docs/lang/nodejs-iojs
 
 #sequential build versions
-version: {build}
+version: "{build}"
 
 # Install scripts. (runs after repo cloning)
 install:
