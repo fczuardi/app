@@ -1,5 +1,8 @@
 #http://www.appveyor.com/docs/lang/nodejs-iojs
 
+#sequential build versions
+version: {build}
+
 # Install scripts. (runs after repo cloning)
 install:
   # Get the latest stable version of Node.js or io.js
