@@ -4,14 +4,13 @@
   "description": "APP_DESCRIPTION",
   "main": "index.js",
   "scripts": {
-    "test":     "npm run rebuild",
-    "clean":    "node --harmony tasks/clean.js",
-    "html":     "node --harmony tasks/html.js",
-    "lint":     "jshint .",
-    "build":    "npm run html",
-    "rebuild":  "npm run clean && npm run build",
-
-    "pretest":  "npm run lint"
+    "test": "npm run rebuild",
+    "clean": "node --harmony tasks/clean.js",
+    "html": "node --harmony tasks/html.js",
+    "lint": "jshint .",
+    "build": "npm run html",
+    "rebuild": "npm run clean && npm run build",
+    "pretest": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -25,6 +24,7 @@
   "author": "Fabricio Campos Zuardi",
   "license": "MIT",
   "devDependencies": {
+    "jshint": "^2.6.0",
     "shelljs": "^0.3.0"
   }
 }

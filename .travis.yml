@@ -7,7 +7,3 @@ node_js:
 matrix:
   allow_failures:
     - node_js: iojs
-
-before_script:
-  - echo $PATH
-  - export PATH=./node_modules/.bin/:$PATH
