@@ -8,7 +8,7 @@ install:
   # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node 1.0
   # install modules
-  - npm install --no-optional
+  - npm install
 
 # Post-install test scripts.
 test_script:
