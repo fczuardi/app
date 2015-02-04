@@ -4,8 +4,11 @@
   "description": "APP_DESCRIPTION",
   "main": "index.js",
   "scripts": {
-    "test": "node --harmony ./node_modules/gulp-cli/bin/gulp.js",
-    "build": "node --harmony ./node_modules/gulp-cli/bin/gulp.js build"
+    "test":     "npm run rebuild",
+    "clean":    "node --harmony tasks/clean.js",
+    "html":     "node --harmony tasks/html.js",
+    "build":    "npm run html",
+    "rebuild":  "npm run clean && npm run build"
   },
   "repository": {
     "type": "git",
@@ -19,8 +22,6 @@
   "author": "Fabricio Campos Zuardi",
   "license": "MIT",
   "devDependencies": {
-    "del": "^1.1.1",
-    "gulp": "git://github.com/gulpjs/gulp#4.0",
-    "gulp-cli": "git://github.com/gulpjs/gulp-cli#4.0"
+    "shelljs": "^0.3.0"
   }
 }
