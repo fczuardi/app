@@ -21,6 +21,7 @@
     "keywords",
     "here"
   ],
+  "private": true,
   "author": "Fabricio Campos Zuardi",
   "license": "MIT",
   "devDependencies": {
