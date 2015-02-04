@@ -7,8 +7,11 @@
     "test":     "npm run rebuild",
     "clean":    "node --harmony tasks/clean.js",
     "html":     "node --harmony tasks/html.js",
+    "lint":     "jshint .",
     "build":    "npm run html",
-    "rebuild":  "npm run clean && npm run build"
+    "rebuild":  "npm run clean && npm run build",
+
+    "pretest":  "npm run lint"
   },
   "repository": {
     "type": "git",
