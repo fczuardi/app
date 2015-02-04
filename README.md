@@ -11,5 +11,5 @@ My current webapp project boilerplate
 The barebones scaffolding for any new project. Includes:
 
 - basic .gitignore
-- minimal gulpfile
-- basic linux and windows CI config files
+- basic tasks for a npm-based build system
+- config files for linux and windows CI (travis and appveyor)
