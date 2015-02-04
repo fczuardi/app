@@ -12,6 +12,10 @@ const paths = {
         }
 };
 
+var test_name = "foo";
+
+console.log(test_name);
+
 gulp.task('clean', function (cb){
     del(paths.build.ROOT +'/**', cb);
 });

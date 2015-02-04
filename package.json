@@ -22,5 +22,9 @@
     "del": "^1.1.1",
     "gulp": "git://github.com/gulpjs/gulp#4.0",
     "gulp-cli": "git://github.com/gulpjs/gulp-cli#4.0"
+  },
+  "jshintConfig": {
+      "esnext": true,
+      "camelcase": true
   }
 }
