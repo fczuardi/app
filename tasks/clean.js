@@ -1,7 +1,10 @@
 'use strict';
 var shell = require('shelljs'),
+    test = shell.test,
     rm = shell.rm;
 
 var paths = require('./paths');
 
-rm('-rf', paths.build.ROOT + '/*');
+if (test('-d', paths.build.ROOT)) {
+    rm('-rf', paths.build.ROOT);
+}
