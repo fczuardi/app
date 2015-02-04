@@ -10,6 +10,7 @@ My current webapp project boilerplate
 
 The barebones scaffolding for any new project. Includes:
 
-- basic .gitignore
+- ignore files (.gitignore, .jshintignore)
 - basic tasks for a npm-based build system
 - config files for linux and windows CI (travis and appveyor)
+

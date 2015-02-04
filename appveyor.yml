@@ -9,6 +9,8 @@ install:
   - ps: Install-Product node 1.0
   # install modules
   - npm install
+  # add node_modules/.bin to the path
+  - SET PATH=node_modules\.bin;%PATH%
 
 # Post-install test scripts.
 test_script:
