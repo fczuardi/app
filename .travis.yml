@@ -1,8 +1,8 @@
-language: node
-node:
+language: node_js
+node_js:
   - 0.11.16
   - iojs
 
 matrix:
   allow_failures:
-    - node: iojs
+    - node_js: iojs
