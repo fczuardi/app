@@ -7,7 +7,7 @@
     "test": "npm run rebuild",
     "clean": "node --harmony tasks/clean.js",
     "html": "node --harmony tasks/html.js",
-    "lint": "jshint .",
+    "lint": "jsxhint . --harmony --jsx-only --show-non-errors",
     "build": "npm run html",
     "rebuild": "npm run clean && npm run build",
     "pretest": "npm run lint"
@@ -25,7 +25,8 @@
   "author": "Fabricio Campos Zuardi",
   "license": "MIT",
   "devDependencies": {
-    "jshint": "^2.6.0",
+    "jsxhint": "^0.9.0",
+    "react": "^0.13.0-beta.1",
     "shelljs": "^0.3.0"
   }
 }
