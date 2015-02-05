@@ -3,13 +3,13 @@
   "version": "1.0.0-alpha",
   "description": "APP_DESCRIPTION",
   "main": "index.js",
-  "browser": "./src/js/browser.jsx",
+  "browser": "./src/js/browser.js",
   "browserLibs": [
     "react"
   ],
   "scripts": {
     "test": "npm run rebuild",
-    "start": "beefy src/js/browser.jsx -- --debug=false -g uglifyify -t [ reactify --es6 ]",
+    "start": "beefy $npm_package_browser -- --debug=false -t [ reactify --es6 ]",
     "lint": "jsxhint . --harmony --jsx-only --show-non-errors",
     "clean": "node --harmony tasks/clean.js",
     "html": "node --harmony tasks/html.js",
