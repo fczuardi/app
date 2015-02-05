@@ -1,5 +1,5 @@
 # WARNING:
-## Do not edit the files on this folder
+## Do not edit the files on the /transpiled folder
 
 The files in the directory ```/transpiled``` are generated, if you need
 to change something, find the correspondent file under the ```/src``` path.
