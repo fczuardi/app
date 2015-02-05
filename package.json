@@ -8,7 +8,8 @@
     "react"
   ],
   "scripts": {
-    "test": "npm run rebuild && npm run lint",
+    "test": "npm run rebuild",
+    "posttest": "npm run transpile && npm run lint",
     "start": "beefy $npm_package_browser -- --debug=false -t [ reactify --es6 ]",
     "lint": "jsxhint . --harmony --jsx-only --show-non-errors",
     "clean": "node --harmony tasks/clean.js",
