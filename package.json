@@ -3,12 +3,20 @@
   "version": "1.0.0-alpha",
   "description": "APP_DESCRIPTION",
   "main": "index.js",
+  "browser": "./src/js/browser.js",
+  "browserLibs": [
+    "react"
+  ],
   "scripts": {
     "test": "npm run rebuild",
+    "start": "beefy src/js/browser.js -- -t [ reactify --es6 ]",
+    "lint": "jsxhint . --harmony --jsx-only --show-non-errors",
     "clean": "node --harmony tasks/clean.js",
     "html": "node --harmony tasks/html.js",
-    "lint": "jsxhint . --harmony --jsx-only --show-non-errors",
-    "build": "npm run html",
+    "bundle": "node --harmony tasks/bundle.js",
+    "bundle:vendors": "node --harmony tasks/bundle.js --type=vendors",
+    "bundle:all": "node --harmony tasks/bundle.js --type=all",
+    "build": "npm run html & npm run bundle & npm run bundle:vendors",
     "rebuild": "npm run clean && npm run build",
     "pretest": "npm run lint"
   },
@@ -25,8 +33,12 @@
   "author": "Fabricio Campos Zuardi",
   "license": "MIT",
   "devDependencies": {
+    "beefy": "^2.1.2",
+    "browserify": "^8.1.3",
     "jsxhint": "^0.9.0",
+    "minimist": "^1.1.0",
     "react": "^0.13.0-beta.1",
+    "reactify": "^1.0.0",
     "shelljs": "^0.3.0"
   }
 }
