@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
     src: {
-        HTML:       './src/html'
+        HTML:   './src/html'
     },
     build: {
         ROOT:   './dist',
