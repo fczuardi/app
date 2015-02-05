@@ -1,4 +1,10 @@
 'use strict';
+const   BUNDLE_FILENAMES = {
+            LOCAL:      'main.js',
+            VENDORS:    'vendors.js',
+            ALL:        'all.js'
+        };
+
 var fs = require('fs'),
     path = require('path');
 
@@ -16,14 +22,34 @@ var pkg = require('../package.json'),
     fileStream,
     outputStream;
 
-if (!test('-d', paths.build.JS)) {
-    mkdir('-p', paths.build.JS);
+// Creates a writeable stream to receive
+// bundler's output and store it in a file
+function fileStream(filename){
+    // create the destination dir if needed
+    if (!test('-d', paths.build.JS)) {
+        mkdir('-p', paths.build.JS);
+    }
+    return fs.createWriteStream(
+                path.join(paths.build.JS, filename),
+                {
+                    flags: 'w+',
+                    encoding: 'utf8',
+                    mode: '0666'
+                }
+    );
 }
 
-//bundles the front-end app scripts
-//defaults to bundling without 3rd-party libraries
-//if the argument completeBundle is passed with value true
-//then the external dependencies are included in the same bundle
+// Bundles only the 3rd party libraries as specified in
+// the browserLibs attribute of package.json
+function vendorsBundle(){
+    return browserify()
+            .require(pkg.browserLibs);
+}
+
+// Bundles the app scripts.
+// Defaults to bundling without 3rd-party libraries, if the argument
+// completeBundle is passed with value true then the external
+// dependencies are included in the same bundle.
 function appBundle(completeBundle){
     let bundler = browserify({
             entries: [pkg.browser]
@@ -37,34 +63,18 @@ function appBundle(completeBundle){
     return bundler;
 }
 
-//bundles the 3rd party libraries as specified in browserLibs
-//attribute of package.json
-function vendorsBundle(){
-    return browserify()
-            .require(pkg.browserLibs);
-}
-
-// accepts a --type=vendors and --type=all command line parameters
+// optionally accepts a --type=vendors or --type=all command line parameter
 filename = (argv.type !== undefined) ?
-                    (argv.type + '.js') :
-                    'main.js';
-fileStream = fs.createWriteStream(
-                path.join(paths.build.JS, filename),
-                {
-                    flags: 'w+',
-                    encoding: 'utf8',
-                    mode: '0666'
-                }
-            );
+                BUNDLE_FILENAMES[argv.type.toUpperCase()] :
+                BUNDLE_FILENAMES.LOCAL;
 
-// accepts a --stdout command line argument to write on stdout
+// accepts a --stdout command line argument to write on stdout instead
 outputStream = (argv.stdout) ?
-                process.stdout :
-                fileStream;
+                    process.stdout :
+                    fileStream(filename);
 
 bundler = (argv.type === 'vendors') ?
                     vendorsBundle() :
                     appBundle(argv.type === 'all');
-
 
 bundler.bundle().pipe(outputStream);
