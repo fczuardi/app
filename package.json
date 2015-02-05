@@ -8,17 +8,17 @@
     "react"
   ],
   "scripts": {
-    "test": "npm run rebuild",
+    "test": "npm run rebuild && npm run lint",
     "start": "beefy $npm_package_browser -- --debug=false -t [ reactify --es6 ]",
     "lint": "jsxhint . --harmony --jsx-only --show-non-errors",
     "clean": "node --harmony tasks/clean.js",
     "html": "node --harmony tasks/html.js",
+    "transpile": "node --harmony tasks/transpile.js",
     "bundle": "node --harmony tasks/bundle.js",
     "bundle:vendors": "node --harmony tasks/bundle.js --type=vendors",
     "bundle:all": "node --harmony tasks/bundle.js --type=all",
     "build": "npm run html & npm run bundle & npm run bundle:vendors",
-    "rebuild": "npm run clean && npm run build",
-    "pretest": "npm run lint"
+    "rebuild": "npm run clean && npm run build"
   },
   "repository": {
     "type": "git",
@@ -30,7 +30,7 @@
     "here"
   ],
   "private": true,
-  "author": "Fabricio Campos Zuardi",
+  "author": "Fabricio Campos Zuardi <fabricio@fabricio.org>",
   "license": "MIT",
   "devDependencies": {
     "beefy": "^2.1.2",
@@ -38,6 +38,7 @@
     "jsxhint": "^0.9.0",
     "minimist": "^1.1.0",
     "react": "^0.13.0-beta.1",
+    "react-tools": "^0.12.2",
     "reactify": "^1.0.0",
     "shelljs": "^0.3.0",
     "uglifyify": "^3.0.1"

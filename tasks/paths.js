@@ -1,11 +1,18 @@
 'use strict';
 module.exports = {
     src: {
-        HTML:   './src/html'
+        ROOT:       './src',
+        HTML:       './src/html'
+    },
+    transpiled: {
+        ROOT:       './transpiled'
     },
     build: {
-        ROOT:   './dist',
-        WWW:    './dist/www',
-        JS:     './dist/www/js'
+        ROOT:       './dist',
+        WWW:        './dist/www',
+        JS:         './dist/www/js'
+    },
+    docs: {
+        ROOT:       './docs'
     }
 };

@@ -5,6 +5,12 @@ var shell = require('shelljs'),
 
 var paths = require('./paths');
 
+// removes /dist
 if (test('-d', paths.build.ROOT)) {
     rm('-rf', paths.build.ROOT);
+}
+
+// removes /transpiled
+if (test('-d', paths.transpiled.ROOT)) {
+    rm('-rf', paths.transpiled.ROOT);
 }
