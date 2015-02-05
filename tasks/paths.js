@@ -5,7 +5,8 @@ module.exports = {
         HTML:       './src/html'
     },
     transpiled: {
-        ROOT:       './transpiled'
+        ROOT:       './transpiled',
+        COMPONENTS: './transpiled/components'
     },
     build: {
         ROOT:       './dist',

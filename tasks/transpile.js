@@ -2,10 +2,13 @@
 var path = require('path');
 
 var shell = require('shelljs'),
-    exec = shell.exec,
-    echo = shell.echo,
-    env = shell.env,
-    cp = shell.cp;
+    cp      = shell.cp,
+    echo    = shell.echo,
+    env     = shell.env,
+    exec    = shell.exec,
+    find    = shell.find,
+    sed     = shell.sed,
+    test    = shell.test;
 
 var paths = require('./paths');
 
@@ -17,6 +20,13 @@ env.PATH += ':' + path.join(__dirname, '../','node_modules', '.bin');
 //transpile using jsx command line tool from react-tools
 echo(cmd);
 exec(cmd, {});
+
+//replaces jsx double-quotes with my personal preference single-quotes
+find(paths.transpiled.COMPONENTS).map(function(filename){
+    if (test('-f', filename)){
+        sed('-i', /\"/g, '\'', filename);
+    }
+});
 
 //add .jshintrc and README.md files to the traspile dir
 cp('-f', path.join(paths.docs.ROOT, 'transpiled_README.md'),
