@@ -17,10 +17,7 @@ var browserify = require('browserify'),
 
 var pkg = require('../package.json'),
     paths = require('./paths'),
-    bundler,
-    filename,
-    fileStream,
-    outputStream;
+    runningAsScript = !module.parent;
 
 // Creates a writeable stream to receive
 // bundler's output and store it in a file
@@ -40,41 +37,61 @@ function fileStream(filename){
 }
 
 // Bundles only the 3rd party libraries as specified in
-// the browserLibs attribute of package.json
-function vendorsBundle(){
-    return browserify()
-            .require(pkg.browserLibs);
+// the libs parameter
+function vendorsBundle(libs){
+    let bundler = browserify()
+                    .require(libs);
+    return bundler;
 }
 
 // Bundles the app scripts.
-// Defaults to bundling without 3rd-party libraries, if the argument
-// completeBundle is passed with value true then the external
-// dependencies are included in the same bundle.
-function appBundle(completeBundle){
+// If the external parameter is passed then the modules on that array
+// wont be included in the bundle
+function appBundle(entry, external){
     let bundler = browserify({
-            entries: [pkg.browser]
+            entries: [entry]
         })
         .transform(reactify, {
             es6: true
         });
-    if (completeBundle !== true){
-        bundler.external(pkg.browserLibs);
+    if (external !== undefined){
+        bundler.external(external);
     }
     return bundler;
 }
 
-// optionally accepts a --type=vendors or --type=all command line parameter
-filename = (argv.type !== undefined) ?
-                BUNDLE_FILENAMES[argv.type.toUpperCase()] :
-                BUNDLE_FILENAMES.LOCAL;
+// What to execute when in command line mode
+// Parameters:
+//  --type=vendors or --type=all for bundling only libs or everything
+//      if undefined just the local scripts are included in the bundle
+//  --stdout to output to standard output instead of writing a file
+//      if undefined the paths of ./paths.js config file will be used
+function run(type, stdout){
+    let filename,
+        outputStream,
+        bundler;
 
-// accepts a --stdout command line argument to write on stdout instead
-outputStream = (argv.stdout) ?
-                    process.stdout :
-                    fileStream(filename);
+    filename = (type !== undefined) ?
+                    BUNDLE_FILENAMES[argv.type.toUpperCase()] :
+                    BUNDLE_FILENAMES.LOCAL;
+    outputStream = (stdout) ?
+                        process.stdout :
+                        fileStream(filename);
+    bundler = (argv.type === 'vendors') ?
+                        vendorsBundle(pkg.browserLibs) :
+                        appBundle(
+                            pkg.browser,
+                            (argv.type !== 'all') ? pkg.browserLibs : undefined
+                        );
+    bundler.bundle().pipe(outputStream);
+}
 
-bundler = (argv.type === 'vendors') ?
-                    vendorsBundle() :
-                    appBundle(argv.type === 'all');
-
-bundler.bundle().pipe(outputStream);
+// executing as a command line script or a node module?
+if (runningAsScript){
+    run(argv.type, argv.stdout);
+} else{
+    module.exports = {
+        appBundle: appBundle,
+        vendorsBundle: vendorsBundle
+    };
+}
