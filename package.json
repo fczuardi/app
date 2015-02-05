@@ -2,7 +2,6 @@
   "name": "APP_NAME",
   "version": "1.0.0-alpha",
   "description": "APP_DESCRIPTION",
-  "main": "index.js",
   "browser": "./src/js/browser.js",
   "browserLibs": [
     "react"
