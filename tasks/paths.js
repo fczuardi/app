@@ -6,6 +6,6 @@ module.exports = {
     build: {
         ROOT:   './dist',
         WWW:    './dist/www',
-        JS:     './dist/js'
+        JS:     './dist/www/js'
     }
 };
