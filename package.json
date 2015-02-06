@@ -17,7 +17,9 @@
     "bundle": "node --harmony tasks/bundle.js",
     "bundle:vendors": "node --harmony tasks/bundle.js --type=vendors",
     "bundle:all": "node --harmony tasks/bundle.js --type=all",
+    "minify": "node --harmony tasks/minify.js",
     "build": "npm run html & npm run bundle & npm run bundle:vendors",
+    "postbuild": "npm run minify",
     "rebuild": "npm run clean && npm run build"
   },
   "repository": {
@@ -41,6 +43,7 @@
     "react-tools": "^0.13.0-beta.1",
     "reactify": "^1.0.0",
     "shelljs": "^0.3.0",
+    "uglify-js": "^2.4.16",
     "uglifyify": "^3.0.1"
   }
 }
