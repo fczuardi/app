@@ -9,7 +9,7 @@
   "scripts": {
     "test": "npm run rebuild",
     "posttest": "npm run transpile && npm run lint",
-    "start": "beefy $npm_package_browser -- --debug=false -t [ reactify --es6 ]",
+    "start": "node --harmony server.js",
     "lint": "jsxhint . --harmony --jsx-only --show-non-errors",
     "clean": "node --harmony tasks/clean.js",
     "html": "node --harmony tasks/html.js",
@@ -36,9 +36,10 @@
   "author": "Fabricio Campos Zuardi <fabricio@fabricio.org>",
   "license": "MIT",
   "devDependencies": {
-    "beefy": "^2.1.2",
     "browserify": "^8.1.3",
     "jsxhint": "^0.9.0",
+    "koa": "^0.17.0",
+    "koa-static": "^1.4.9",
     "minimist": "^1.1.0",
     "react": "^0.13.0-beta.1",
     "react-tools": "^0.13.0-beta.1",

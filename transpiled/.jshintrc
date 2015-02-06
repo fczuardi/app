@@ -3,6 +3,7 @@
     "esnext": true,
     "predef": [
         "require",
-        "module"
+        "module",
+        "console"
     ]
 }

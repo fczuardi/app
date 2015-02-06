@@ -31,5 +31,5 @@ find(paths.transpiled.COMPONENTS).map(function(filename){
 //add .jshintrc and README.md files to the traspile dir
 cp('-f', path.join(paths.docs.ROOT, 'transpiled_README.md'),
                     path.join(paths.transpiled.ROOT, 'README.md'));
-cp('-f', path.join(paths.src.ROOT, '.jshintrc'),
+cp('-f', path.join(__dirname, '../', '.jshintrc'),
                     path.join(paths.transpiled.ROOT, '.'));
