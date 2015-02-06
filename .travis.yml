@@ -1,10 +1,6 @@
 language: node_js
 
 node_js:
-  - iojs
+  - iojs-v1.1.0
   - 0.11.16
   - 0.10.36
-
-matrix:
-  allow_failures:
-    - node_js: 0.10.36
