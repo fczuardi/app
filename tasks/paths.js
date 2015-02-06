@@ -2,7 +2,8 @@
 module.exports = {
     src: {
         ROOT:       './src',
-        HTML:       './src/html'
+        HTML:       './src/html',
+        IMG:        './assets/img'
     },
     transpiled: {
         ROOT:       './transpiled',
@@ -11,7 +12,8 @@ module.exports = {
     build: {
         ROOT:       './dist',
         WWW:        './dist/www',
-        JS:         './dist/www/js'
+        JS:         './dist/www/js',
+        IMG:        './dist/www/img'
     },
     docs: {
         ROOT:       './docs'
