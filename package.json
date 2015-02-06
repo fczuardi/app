@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "test": "npm run rebuild",
-    "posttest": "npm run transpile && npm run lint",
+    "posttest": "npm run transpile && npm run lint && npm run tree",
     "start": "node --harmony server.js",
     "lint": "jsxhint . --harmony --jsx-only --show-non-errors",
     "clean": "node --harmony tasks/clean.js",
@@ -18,9 +18,10 @@
     "transpile": "node --harmony tasks/transpile.js",
     "bundle": "node --harmony tasks/bundle.js",
     "bundle:vendors": "node --harmony tasks/bundle.js --type=vendors",
-    "bundle:both":"npm run bundle & npm run bundle:vendors",
+    "bundle:both": "npm run bundle & npm run bundle:vendors",
     "bundle:all": "node --harmony tasks/bundle.js --type=all",
     "minify": "node --harmony tasks/minify.js",
+    "tree": "node --harmony tasks/tree.js",
     "build": "npm run copy & npm run bundle:both",
     "postbuild": "npm run minify",
     "rebuild": "npm run clean && npm run build"
@@ -38,6 +39,7 @@
   "author": "Fabricio Campos Zuardi <fabricio@fabricio.org>",
   "license": "MIT",
   "devDependencies": {
+    "ascii-tree": "^0.1.1",
     "browserify": "^8.1.3",
     "jsxhint": "^0.9.0",
     "koa": "^0.17.0",
