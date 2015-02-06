@@ -24,6 +24,6 @@ uncompressed.map(function(filename){
     var cmd = 'uglifyjs -c warnings=false -m -o ' +
                 filename.replace('.js', '.min.js') + ' ' +
                 filename;
-    echo(cmd);
+    echo('> ' + cmd);
     exec(cmd);
 });
