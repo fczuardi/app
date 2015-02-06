@@ -14,3 +14,32 @@ The barebones scaffolding for any new project. Includes:
 - ignore files (.gitignore, .jshintignore)
 - basic tasks for a npm-based build system
 - config files for linux and windows CI (travis and appveyor)
+
+-----
+
+Install
+-------
+
+### Install requirements
+
+#### Install git
+ - http://git-scm.com/
+
+#### Install nvm (or nvm-windows if on Windows)
+
+- https://github.com/creationix/nvm
+- https://github.com/coreybutler/nvm-windows
+
+#### Install io.js (a fork of node.js)
+
+    nvm install iojs
+    iojs --version
+
+### Get the source code
+
+    git clone git@bitbucket.org:fabricio/private-tc-net.git
+
+### Install dev environment dependencies
+
+    cd APP_NAME
+    npm install
