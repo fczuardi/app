@@ -1,6 +1,7 @@
-var React = require('react');
+var React = require('react'),
+    PureRenderComponent = require('./pureRenderComponent.jsx');
 
-class HelloMessage extends React.Component {
+class HelloMessage extends PureRenderComponent {
   render() {
     return <div>Hello {this.props.name}</div>;
   }
