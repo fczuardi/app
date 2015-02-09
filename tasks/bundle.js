@@ -69,7 +69,13 @@ function appBundle(entry, external){
 function run(type, stdout){
     let filename,
         outputStream,
-        bundler;
+        bundler,
+        external,
+        browserLibs = pkg.browser,
+        entry = pkg.browser.main;
+
+    delete browserLibs.main;
+    external = Object.keys(browserLibs);
 
     filename = (type !== undefined) ?
                     BUNDLE_FILENAMES[argv.type.toUpperCase()] :
@@ -78,10 +84,10 @@ function run(type, stdout){
                         process.stdout :
                         fileStream(filename);
     bundler = (argv.type === 'vendors') ?
-                        vendorsBundle(pkg.browserLibs) :
+                        vendorsBundle(external) :
                         appBundle(
-                            pkg.browser,
-                            (argv.type !== 'all') ? pkg.browserLibs : undefined
+                            entry,
+                            (argv.type !== 'all') ? external : undefined
                         );
     bundler.bundle().pipe(outputStream);
 }

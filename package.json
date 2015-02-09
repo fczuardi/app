@@ -2,10 +2,10 @@
   "name": "APP_NAME",
   "version": "1.0.0-alpha",
   "description": "APP_DESCRIPTION",
-  "browser": "./src/js/browser.js",
-  "browserLibs": [
-    "react"
-  ],
+  "browser": {
+      "main": "./src/js/browser.js",
+      "react": "react/addons"
+  },
   "scripts": {
     "test": "npm run rebuild",
     "posttest": "npm run transpile && npm run lint && npm run tree",
