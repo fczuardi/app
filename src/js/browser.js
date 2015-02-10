@@ -1,4 +1,8 @@
 var React = require('react'),
-    HelloMessage = require('../components/helloMessage.jsx');
+    HelloMessage = require('../components/helloMessage.jsx'),
+    messages = require('../../locales/pt/messages.json');
 
-React.render(React.createElement(HelloMessage, {name: 'World'}), document.body);
+React.render(React.createElement(HelloMessage, {
+    messages: messages,
+    name: 'Lebowski'
+}), document.body);

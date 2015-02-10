@@ -1,9 +1,19 @@
 var React = require('react'),
-    PureRenderComponent = require('./pureRenderComponent.jsx');
+    ReactIntl = require('react-intl'),
+    FormattedMessage = ReactIntl.FormattedMessage,
+    IntlPureRenderComponent = require('./intlPureRenderComponent.jsx');
 
-class HelloMessage extends PureRenderComponent {
-  render() {
-    return <div>Hello {this.props.name}</div>;
+class HelloMessage extends IntlPureRenderComponent {
+    render() {
+        var s = this.getIntlMessage;
+        return (
+<div>
+    <FormattedMessage
+        message={s('hello')}
+        name={this.props.name}
+    />
+</div>
+        );
   }
 }
 

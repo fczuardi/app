@@ -3,8 +3,9 @@
   "version": "1.0.0-alpha",
   "description": "APP_DESCRIPTION",
   "browser": {
-      "main": "./src/js/browser.js",
-      "react": "react/addons"
+    "main": "./src/js/browser.js",
+    "react": "react/addons",
+    "react-intl": "react-intl"
   },
   "scripts": {
     "test": "npm run rebuild",
@@ -46,6 +47,7 @@
     "koa-static": "^1.4.9",
     "minimist": "^1.1.0",
     "react": "^0.13.0-beta.1",
+    "react-intl": "^1.1.0",
     "react-tools": "^0.13.0-beta.1",
     "reactify": "^1.0.0",
     "shelljs": "^0.3.0",
