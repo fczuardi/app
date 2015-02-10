@@ -15,6 +15,7 @@ The barebones scaffolding for any new project. Includes:
 - basic folders structure
 - basic tasks for a npm-based build system
 - config files for linux and windows CI (travis and appveyor)
+- local webserver for serving the app and API
 
 Technology choices/stack
 ------------------------
@@ -36,6 +37,7 @@ and aims to be used with React components (jsx files).
 | Bundler                   | browserify    |
 | Dev Server/Back-end API   | koa           |
 | Front-end UI              | React         |
+| Internationalization      | react-intl    |
 
 Comming soon / considering:
 
