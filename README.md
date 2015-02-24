@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/fczuardi/app.png?label=ready&title=Ready)](https://waffle.io/fczuardi/app)
 # app
 My current webapp project boilerplate
 
