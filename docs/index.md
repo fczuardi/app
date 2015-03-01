@@ -44,14 +44,17 @@ and aims to be used with React components (jsx files).
 | Front-end UI              | React         |
 | Internationalization      | react-intl    |
 
+
 ### Comming soon / considering:
 
 | Function                  | Tool          |
 |---------------------------|---------------|
 | Browser reload            | BrowserSync   |
 | Flux implementation       | hoverboard, alt or refulx |
+| Styles                    | radium        |
 
-Unrelated recommendations:
+
+### Unrelated recommendations:
 
 | Function                  | Tool          |
 |---------------------------|---------------|
