@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "npm run rebuild",
-    "posttest": "npm run transpile && npm run lint && npm run tree",
+    "posttest": "npm run transpile && npm run lint && npm run tree && npm outdated --depth=0",
     "start": "node --harmony server.js",
     "lint": "jsxhint . --harmony --jsx-only --show-non-errors",
     "clean": "node --harmony tasks/clean.js",
